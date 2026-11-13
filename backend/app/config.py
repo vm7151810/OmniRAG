@@ -20,7 +20,9 @@ KEY RESPONSIBILITIES:
 """
 
 import os
+from typing import Any
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -50,6 +52,17 @@ class Settings(BaseSettings):
     LANGSMITH_AGENT_ID: str = "omnirag"
     LANGSMITH_AGENT_ENVIRONMENT: str = "local"
     DEBUG: bool = True
+
+    @field_validator("LANGCHAIN_TRACING_V2", "LANGSMITH_TRACING", "DEBUG", mode="before")
+    @classmethod
+    def parse_bool_safely(cls, v: Any) -> bool:
+        """Parse boolean values safely, handling empty strings or unconfigured CI secrets."""
+        if isinstance(v, str):
+            cleaned = v.strip().lower()
+            if cleaned in ("", "false", "0", "no", "off"):
+                return False
+            return cleaned in ("true", "1", "yes", "on")
+        return bool(v)
 
     # Pydantic configuration dictionary specifying .env file path and extra field handling
     model_config = SettingsConfigDict(
