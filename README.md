@@ -2,6 +2,8 @@
 
 **Enterprise Agentic Support Intelligence with Hybrid Policy Retrieval and Deterministic SQL Analytics**
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-omni--rag--sigma.vercel.app-000000?style=flat-square&logo=vercel&logoColor=white)](https://omni-rag-sigma.vercel.app/)
+[![API Backend](https://img.shields.io/badge/API_Backend-omnirag--api.onrender.com-46E3B7?style=flat-square&logo=render&logoColor=white)](https://omnirag-api.onrender.com/health)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![LangChain](https://img.shields.io/badge/LangChain-LangGraph-1C3C3C?style=flat-square&logo=langchain&logoColor=white)](https://langchain.com)
@@ -13,6 +15,9 @@
 [![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://sqlite.org)
 [![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat-square&logo=docker&logoColor=white)](https://docker.com)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+
+> **Live Application**: [omni-rag-sigma.vercel.app](https://omni-rag-sigma.vercel.app/)  
+> **Backend Service**: [omnirag-api.onrender.com](https://omnirag-api.onrender.com/health)
 
 ---
 
@@ -342,6 +347,13 @@ flowchart LR
     Render -->|API Calls| Gemini[Google AI Studio\nGemini Models]
     Render -->|Vector Query| Pinecone[Pinecone Serverless\nAWS us-east-1]
 ```
+
+### Live Deployments
+
+| Component | Platform | Live URL | Health Status |
+|:---|:---|:---|:---|
+| **Web Interface** | Vercel Global CDN | [omni-rag-sigma.vercel.app](https://omni-rag-sigma.vercel.app/) | Operational |
+| **Backend API** | Render Container | [omnirag-api.onrender.com](https://omnirag-api.onrender.com/health) | Operational |
 
 ### 1. Backend on Render (Web Service)
 - **Repository Root**: `backend`

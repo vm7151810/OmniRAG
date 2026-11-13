@@ -2,6 +2,8 @@
 
 The **Next.js UI** module provides the frontend web interface for the OmniRAG Enterprise ChatBot system. Built on **Next.js 15 (App Router)**, **React 19**, **Tailwind CSS**, and **shadcn/ui**, it features a dark-mode glassmorphism aesthetic, a cold-start backend health polling loop, real-time Server-Sent Events (SSE) stream parsing, interactive markdown rendering, SQL query viewers, and document citation drawers.
 
+> **Live Deployment**: [https://omni-rag-sigma.vercel.app](https://omni-rag-sigma.vercel.app/)
+
 ---
 ## How to run it
 ```bash
