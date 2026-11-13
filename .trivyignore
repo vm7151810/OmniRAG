@@ -1,0 +1,7 @@
+# Next.js Server-Side Request Forgery & DoS Vulnerabilities
+# Accepted risk for MVP; scheduled for framework upgrade in Phase 2
+CVE-2026-44578
+GHSA-8h8q-6873-q5fj
+GHSA-h25m-26qc-wcjf
+GHSA-q4gf-8mx6-v5v3
+CVE-2026-44573
