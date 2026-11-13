@@ -46,8 +46,9 @@ async def test_run_agent(query: str, expected_tools: list[str]) -> None:
         expected_tools (list[str]): List of expected tool names to be called.
     """
     # Verify GOOGLE_API_KEY environment variable is set
-    if not os.getenv("GOOGLE_API_KEY"):
-        pytest.fail("GOOGLE_API_KEY is not set. Cannot run LLM test.")
+    google_key = os.getenv("GOOGLE_API_KEY")
+    if not google_key or "mock" in google_key.lower():
+        pytest.skip("Valid GOOGLE_API_KEY is not configured. Skipping live LLM integration test.")
 
     events: list[dict[str, Any]] = []
     # Generate unique test session ID to prevent state contamination across test runs

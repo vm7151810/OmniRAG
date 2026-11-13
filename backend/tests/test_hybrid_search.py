@@ -28,9 +28,10 @@ load_dotenv()
 
 def test_hybrid_search() -> None:
     """Test hybrid search against real Pinecone index and Gemini embedding API."""
-    # Skip test if API keys are missing
-    if not os.getenv("PINECONE_API_KEY") or not os.getenv("GOOGLE_API_KEY"):
-        pytest.skip("API keys not set for real integration test")
+    pinecone_key = os.getenv("PINECONE_API_KEY")
+    google_key = os.getenv("GOOGLE_API_KEY")
+    if not pinecone_key or "mock" in pinecone_key.lower() or not google_key or "mock" in google_key.lower():
+        pytest.skip("Valid API keys not set for real integration test")
     
     query = "What is the return policy?"
     results = search(query, top_k=2)
@@ -54,8 +55,10 @@ def test_hybrid_search() -> None:
 
 def test_hybrid_search_empty_query() -> None:
     """Test hybrid search behavior when passed an empty query string."""
-    if not os.getenv("PINECONE_API_KEY") or not os.getenv("GOOGLE_API_KEY"):
-        pytest.skip("API keys not set for real integration test")
+    pinecone_key = os.getenv("PINECONE_API_KEY")
+    google_key = os.getenv("GOOGLE_API_KEY")
+    if not pinecone_key or "mock" in pinecone_key.lower() or not google_key or "mock" in google_key.lower():
+        pytest.skip("Valid API keys not set for real integration test")
     
     results = search("", top_k=2)
     assert isinstance(results, list)

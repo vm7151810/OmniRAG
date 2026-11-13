@@ -113,6 +113,9 @@ def test_pinecone_connection() -> None:
     load_dotenv()
     
     api_key = os.getenv("PINECONE_API_KEY")
+    if not api_key or "mock" in api_key.lower():
+        pytest.skip("Valid PINECONE_API_KEY is not configured. Skipping live Pinecone test.")
+
     index_name = os.getenv("PINECONE_INDEX_NAME") or "northwind-gadgets"
     index_name = index_name.lower().strip()
     

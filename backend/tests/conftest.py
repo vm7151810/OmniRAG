@@ -22,8 +22,8 @@ from collections.abc import Generator
 import pytest
 from dotenv import load_dotenv
 
-# Override environment variables from root .env file for testing
-load_dotenv(override=True)
+# Load environment variables from .env if not already set in environment
+load_dotenv(override=False)
 
 
 @pytest.fixture(autouse=True, scope="session")
